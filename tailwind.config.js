@@ -13,8 +13,19 @@ module.exports = {
           DEFAULT: "#131921",
         },
       },
+      screens: {
+        '2xl': '1450px',
+      },
+      height: {
+        dd: "20px",
+      },
+      fontSize: {
+        ss: ['14px', '20px'],
+        
+      }
     },
   },
+  
   variants: {
     extend: {},
   },
