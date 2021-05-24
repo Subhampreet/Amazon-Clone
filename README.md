@@ -1,29 +1,26 @@
-# Installation Steps
+## Amazon Clone Using Next.JS, Tailwind CSS
 
+### Features
 
+Here's the feature's included in this project
 
-## Using npm
+- 🌐 FULL Ecommerce functionality which includes both back-end and front-end
+- 👨‍👩‍👧‍👦 Login Page
+- 📦 Products Page
+- 🛒 Cart and Checkout Page
+- 💳 REAL Payments (Stripe Credit Card Payments)
+- 📝 Order History Page (Real time database)
+- ❄ Awesome animations like React Hover effects 
+
+### Installation Steps
+
+### Using npm: 
 
 Run commands
 
 1) ```npm install```
 
-
 2) ```npm run dev```
 
 
-## Or using yarn
 
-Run commands 
-
-1) ```npm install --global yarn```
-
-2) ```yarn install```
-
-3) ```yarn run dev```
-
-
-### If you see the window below then you are set to build AMAZON 2.0!
-
-![Template Screenshot](TemplateScreenshot.jpg?raw=true "Template Screenshot")
-# Amazon-Clone
