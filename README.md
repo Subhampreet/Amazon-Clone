@@ -1,5 +1,8 @@
 ## Amazon Clone Using Next.JS, Tailwind CSS
 
+<img src="https://github.com/Subhampreet/Amazon-Clone/blob/main/public/template.png">
+
+
 ### Features
 
 Here's the feature's included in this project
