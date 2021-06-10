@@ -6,7 +6,16 @@ import Currency from "react-currency-formatter";
 import {useDispatch} from "react-redux";
 import {addToBasket} from "../slices/basketSlice";
 
+import {useSelector} from "react-redux";
+import { useRouter } from "next/router";
+import {selectItems} from "../slices/basketSlice";
+
 function Product({id, title, price, description, category, image}) {
+
+
+    const router = useRouter();
+
+    const items = useSelector(selectItems);
 
     const dispatch  = useDispatch();
 
@@ -19,7 +28,7 @@ function Product({id, title, price, description, category, image}) {
 
     const addItemToBasket = () => {
         const product = {
-            id, title, price, description, category, image
+            id, title, price, description, category, image, rating, hasPrime
         };
 
         dispatch(addToBasket(product))
@@ -31,7 +40,7 @@ function Product({id, title, price, description, category, image}) {
         <div className="relative flex flex-col m-4 bg-white z-30 p-10 ">
             <p className="absolute top-2 right-2 text-xs italic text-gray-400">{category}</p>
 
-            <Image src={image} height={200} width={200} objectFit="contain" />
+            <Image onClick = {() => router.push("{/productdetail")} src={image} height={200} width={200} objectFit="contain" />
 
             <h4 className="my-3 font-bold">{title}</h4>
 
