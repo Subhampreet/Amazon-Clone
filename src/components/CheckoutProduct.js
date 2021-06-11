@@ -1,13 +1,18 @@
 import React from 'react';
 import Image from "next/image";
-import {StarIcon} from "@heroicons/react/solid";
+import { StarIcon} from "@heroicons/react/solid";
 import Currency from "react-currency-formatter";
 import { useDispatch } from 'react-redux';
-import {addToBasket, removeFromBasket} from "../slices/basketSlice";
+import {addToBasket, removeFromBasket, removeGroupedFromBasket
+} from "../slices/basketSlice";
 
 
 
-function CheckoutProduct({id, title, price, rating, description, category, image, hasPrime}) {
+
+function CheckoutProduct({id, title, price, rating, description, category, image, hasPrime, quantity}) {
+
+
+    const total = price * quantity;
 
     const dispatch = useDispatch();
 
@@ -20,6 +25,10 @@ function CheckoutProduct({id, title, price, rating, description, category, image
 
     const removeItemFromBasket = () => {
         dispatch(removeFromBasket({id}));
+    }
+
+    function removeGroupFromBasket() {
+        dispatch(removeGroupedFromBasket({ id }));
     }
 
 
@@ -38,7 +47,7 @@ function CheckoutProduct({id, title, price, rating, description, category, image
                 <p className="text-sm mt-2 my-2 line-clamp-3" >{description}</p>
 
                 <div className="font-semibold">
-                    <Currency quantity={price} currency="GBP"  />
+                    <Currency quantity={total} currency="GBP"  />
                 </div>               
 
 
@@ -50,10 +59,32 @@ function CheckoutProduct({id, title, price, rating, description, category, image
                 )}
             </div>
 
-            {/* Right Add and Remove button */}
+            {/* Right Add and Remove button
             <div className="flex flex-col space-y-2 my-auto justify-self-end ">
                     <button className="button font-semibold" onClick={addItemToBasket}>Add to Basket</button>
                     <button className="button font-semibold" onClick={removeItemFromBasket}>Remove from Basket</button>
+            </div> */}
+
+
+            {/* Buttons on the right of the products */}
+            <div className="flex flex-col space-y-2 my-auto justify-self-end">
+                <div className="flex justify-between xs:justify-start">
+                    <button
+                        className="button minus-button "
+                        onClick={removeItemFromBasket}>
+                        {/* <MinusSmIcon className="h-5 text-black" /> */}
+                        <div className="minus-button-sm font-extrabold">-</div>
+                    </button>
+                    <div className="p-2 whitespace-normal sm:p-1 sm:whitespace-nowrap">
+                        Quantity: <span className="font-bold">{quantity}</span>
+                    </div>
+                    <button className="button minus-button  " onClick={addItemToBasket}>
+                        <div className="minus-button font-extrabold">+</div>
+                    </button>
+                </div>
+                <button className="button" onClick={removeGroupFromBasket}>
+                    Remove from Basket
+                </button>
             </div>
 
         </div>

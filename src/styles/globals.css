@@ -18,4 +18,12 @@
         @apply col-span-3 mx-8;
     }
 
+    .minus-button{
+        @apply text-xxl p-1  pt-0 pb-0.5;
+    }
+
+    .minus-button-sm{
+        @apply p-1.5 text-xxl  pt-0 pb-0.5;
+    }
+
 }

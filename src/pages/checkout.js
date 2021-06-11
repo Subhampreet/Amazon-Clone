@@ -6,6 +6,8 @@ import { useSelector } from "react-redux";
 import CheckoutProduct from "../components/CheckoutProduct";
 import Currency from "react-currency-formatter";
 import { useSession } from 'next-auth/client';
+import { groupBy } from "lodash";
+
 
 
 function checkout() {
@@ -15,6 +17,8 @@ function checkout() {
     const [session] = useSession();
 
     const total = useSelector(selectTotal);
+
+    const groupedItems = Object.values(groupBy(items, "id"));
 
     return (
         <div className="bg-gray-100">
@@ -36,17 +40,18 @@ function checkout() {
 
                        <div className="pl-9 pr-9 ">
                             {
-                                items.map((item, i) => (
+                                groupedItems.map((group, i) => (
                                     <CheckoutProduct
                                             key={i} 
-                                            id = {item.id}
-                                            title = {item.title}
-                                            rating = {item.rating}
-                                            price = {item.price}
-                                            description = {item.description}
-                                            category = {item.category}
-                                            image = {item.image}
-                                            hasPrime = {item.hasPrime}
+                                            id={group[0].id}
+                                            title={group[0].title}
+                                            rating={group[0].rating}
+                                            price={group[0].price}
+                                            description={group[0].description}
+                                            category={group[0].category}
+                                            image={group[0].image}
+                                            hasPrime={group[0].hasPrime}
+                                            quantity={group.length}
                                     />
                                 ))
                             }
