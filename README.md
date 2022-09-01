@@ -1,4 +1,4 @@
-## Amazon Clone Using Next.JS, Tailwind CSS
+<h1 align="center">Amazon Clone Using Next.JS, Tailwind CSS</h1>
 
 <img src="https://github.com/Subhampreet/Amazon-Clone/blob/main/public/template.png">
 
